@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CassetteCaddy</title>
+  <!-- this is the head title that you'll see on the Chrome Tab I've popped in a VHS emoji! -->
+    <title>📼</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,6 +16,15 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <!-- this renders the navbar -->
+    <%= render "layouts/navbar" %>
+
+    <!--  Wrapped the Yield in a div and have set its min height in _home.scss - this should get the footer to drop to the bottom of each page nicely -->
+    <div class="min-height">
+      <%=yield %>
+    </div>
+
+    <!-- this renders the footer -->
+    <%= render "layouts/footer" %>
   </body>
 </html>

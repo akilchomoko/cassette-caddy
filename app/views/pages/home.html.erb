@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container position-absolute h-75">
+  <div class="row h-100 min-vw-100 align-items-center">
+    <div class="col text-center align-items-center">
+      <h1 data-text="Cassette Caddy" class="display-3">Cassette Caddy</h1>
+      <form class="form" action="/titles"> <!-- TODO: needs to be changed to titles_path -->
+        <input type="text" name="q" id="search">
+        <input type="submit" value="Search">
+      </form>
+    </div>
+  </div>
+</div>
