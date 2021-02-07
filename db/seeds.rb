@@ -46,7 +46,7 @@ record_limit = 600
 total = 0
 puts "** Calling IMDB for year #{year}, #{recs} at a time **"
 
-page = 25
+page = 1
 
 loop do
   url = URI("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movies-byyear&page=#{page}&year=#{year}")
