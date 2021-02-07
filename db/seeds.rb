@@ -28,7 +28,7 @@ def get_imdb_data(url)
   http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
   request = Net::HTTP::Get.new(url)
-  request["x-rapidapi-key"] = 'ee4080f3cemshab69ec68f2c3a2dp11fc01jsn6726b24ce3bb'
+  request["x-rapidapi-key"] = ENV.fetch('RAPID_IMDB_API_KEY')
   request["x-rapidapi-host"] = 'movies-tvshows-data-imdb.p.rapidapi.com'
 
   response = http.request(request)
@@ -46,7 +46,7 @@ record_limit = 600
 total = 0
 puts "** Calling IMDB for year #{year}, #{recs} at a time **"
 
-page = 1
+page = 25
 
 loop do
   url = URI("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movies-byyear&page=#{page}&year=#{year}")
