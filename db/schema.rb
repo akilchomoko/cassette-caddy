@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_06_173108) do
+ActiveRecord::Schema.define(version: 2021_02_07_213812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_02_06_173108) do
     t.integer "rate_per_day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "imdb_id"
+    t.string "imdb_id"
     t.index ["genre_id"], name: "index_titles_on_genre_id"
   end
 
