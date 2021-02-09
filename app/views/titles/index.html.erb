@@ -1,19 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 offset-sm-2">
-      <div id="titles mt-3">
-        <% @title.each do |title| %>
-          <h4>Film Title :<%= title.title %></h4>
-          <p>Film Description : <%= title.description %></p>
-          <p>Release Year : <%= title.release_year %></p>
-          <p>Rental Rate : <%= title.rate_per_day %></p>
-          <a href="https://www.imdb.com/title/<%= title.imdb_id %>/">
-          <span style=" font-size: 32px; color: Dodgerblue;">
-            <i class="fab fa-imdb"></i>
-          </span>
-          </a>
-        <% end %>
-      </div>
-    </div>
-  </div>
+<div id="titles mt-3">
+  <% @title.each do |title| %>
+    <h4>Film Title :<%= title.title %></h4>
+    <p>Film Description : <%= title.description %></p>
+    <p>Release Year : <%= title.release_year %></p>
+    <p>Rental Rate : <%= title.rate_per_day %></p>
+    <a href="https://www.imdb.com/title/<%= title.imdb_id %>/">
+    <span style=" font-size: 32px; color: Dodgerblue;">
+      <i class="fab fa-imdb"></i>
+    </span>
+    </a>
+  <% end %>
 </div>

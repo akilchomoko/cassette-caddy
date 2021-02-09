@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :titles, only: [:index, :show] do
-    resources :rentals, only: [:create, :show, :destroy]
-  end
 
+  resources :titles, only: [:index, :show] do
+    resources :rentals, only: [:create, :new]
+  end
+  resources :rentals, only: [:index, :show, :destroy, :edit, :update]
   resources :users, only: [:show]
 end
