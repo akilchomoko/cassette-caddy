@@ -65,10 +65,9 @@ loop do
     title.description = details_hash["description"]
     title.release_year = details_hash["year"]
     title.imdb_id = imdb_id
-    title.rate_per_day = details_hash["imdb_rating"].to_f * 100
+    title.rate_per_day = (details_hash["imdb_rating"].to_f * 10) + 200
     details_hash["genres"].nil? ? genre = "Unknown" : genre = details_hash["genres"][0]
     title.genre = genre_resolve(genre)
-    title.rate_per_day = details_hash["imdb_rating"].to_f * 100 # FIXME - is this an error? See line 69 for duplicate code. 
 
     title.save
     total += 1
