@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     resources :rentals, only: [:create, :show, :destroy]
   end
 
-  resources :user, only: [:show]
+  resources :users, only: [:show]
 end
