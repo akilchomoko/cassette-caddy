@@ -21,6 +21,16 @@ class RentalsController < ApplicationController
     redirect_to rental/[:title_id]
   end
 
+  def edit
+    @rental = Rental.find(params[:id])
+  end
+
+  def update
+    @rental = Rental.find(params[:id])
+    @rental.update(params[:restaurant])
+    redirect_to rental/[:title_id]
+  end
+
   def destroy
     @rental = Rental.find(params[:id])
     @rental.destroy
