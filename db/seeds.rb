@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# TODO: add 50 titles from between 1977 and 1998 from http://www.omdbapi.com/
 
 require 'uri'
 require 'net/http'
@@ -69,7 +68,7 @@ loop do
     title.rate_per_day = details_hash["imdb_rating"].to_f * 100
     details_hash["genres"].nil? ? genre = "Unknown" : genre = details_hash["genres"][0]
     title.genre = genre_resolve(genre)
-    title.rate_per_day = details_hash["imdb_rating"].to_f * 100
+    title.rate_per_day = details_hash["imdb_rating"].to_f * 100 # FIXME - is this an error? See line 69 for duplicate code. 
 
     title.save
     total += 1
