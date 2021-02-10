@@ -8,6 +8,13 @@ Bundler.require(*Rails.groups)
 
 module CassetteCaddy
   class Application < Rails::Application
+    
+    # WPD : Added the video asssets folder to rails root
+    config.assets.paths << "#{Rails.root}/app/assets/videos"
+    # WPD - getting rails to precompile the mp4 assets in the asset pipleine: 
+    config.assets.precompile += %w(.mp4)
+
+    # This is the boilerplate setup from leWagaon: 
     config.generators do |generate|
       generate.assets false
       generate.helper false
