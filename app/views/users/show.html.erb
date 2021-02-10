@@ -1,0 +1,7 @@
+<h1>Your Account</h1>
+<h2>Rentals</h2>
+<ul class="list-group">
+  <% @rentals.each do |rental| %>
+    <li class="list-group-item"><%= rental.title.title %></li>
+  <% end %>
+</ul>

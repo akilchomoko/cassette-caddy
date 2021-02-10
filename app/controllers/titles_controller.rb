@@ -11,4 +11,5 @@ class TitlesController < ApplicationController
     @title_details = @title.imdb_details
     @title_poster = @title.imdb_poster
   end
+
 end
