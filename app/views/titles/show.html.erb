@@ -1,29 +1,25 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 offset-sm-2">
-      <div class="poster">
-        <%= image_tag @title_poster["poster"], alt: "Movie Poster To Come!", size: "250x400" %>
-      </div>
-      <div class="detail">
-        <h4>File Title: <%= @title.title %> </h4>
-        <p>Film Description : <%= @title.description %></p>
-        <p>Directors : <%= @title_details["directors"][0..3].join(", ") %></p>
-        <p>Stars : <%= @title_details["stars"][0..3].join(", ") %></p>
-        <p>Release Year : <%= @title.release_year %></p>
-        <p>IMDB Rating : <%= @title_details["imdb_rating"] %></p>
-        <p>Language : <%= @title_details["language"][0] %></p>
-        <p>Popularity : <%= @title_details["popularity"][0] %></p>
-        <p>Rental Rate : £<%= @title.rate_per_day.to_f / 100 %> per day</p>
-        <p>Rated : <%= @title_details["rated"] %></p>
-        <p>Format : VHS</p>
-        <a href="https://www.imdb.com/title/<%= @title.imdb_id %>/">
-          <span style=" font-size: 32px; color: Dodgerblue;">
-          <i class="fab fa-imdb"></i>
-          </span>
-        </a>
-        <hr>
-        <button type="button" class="btn btn-dark">Rent Now</button>
-      </div>
-    </div>
-  </div>
+
+<div class="poster">
+  <%= image_tag @title_poster["poster"], alt: "Movie Poster To Come!", size: "250x400" %>
 </div>
+<div class="detail">
+  <h4>File Title: <%= @title.title %> </h4>
+  <p>Film Description : <%= @title.description %></p>
+  <p>Directors : <%= @title_details["directors"][0..3].join(", ") %></p>
+  <p>Stars : <%= @title_details["stars"][0..3].join(", ") %></p>
+  <p>Release Year : <%= @title.release_year %></p>
+  <p>IMDB Rating : <%= @title_details["imdb_rating"] %></p>
+  <p>Language : <%= @title_details["language"][0] %></p>
+  <p>Popularity : <%= @title_details["popularity"][0] %></p>
+  <p>Rental Rate : £<%= @title.rate_per_day.to_f / 100 %> per day</p>
+  <p>Rated : <%= @title_details["rated"] %></p>
+  <p>Format : VHS</p>
+  <a href="https://www.imdb.com/title/<%= @title.imdb_id %>/">
+    <span style=" font-size: 32px; color: Dodgerblue;">
+    <i class="fab fa-imdb"></i>
+    </span>
+  </a>
+  <hr>
+  <button type="button" class="btn btn-dark">Rent Now</button>
+</div>
+
