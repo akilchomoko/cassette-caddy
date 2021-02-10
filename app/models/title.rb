@@ -9,6 +9,13 @@ class Title < ApplicationRecord
   require 'openssl'
   require 'json'
 
+  include PgSearch::Model
+  pg_search_scope :splash_search,
+    against: [ :title, :description ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
   def imdb_details
     url = URI("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movie-details&imdb=#{imdb_id}")
     get_imdb_data(url)
