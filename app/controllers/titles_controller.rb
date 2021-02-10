@@ -1,6 +1,6 @@
 class TitlesController < ApplicationController
-  # Title controller
 
+  # Title controller - Limited to 10 searched films: 
   def index
     @title = Title.limit(10)
   end
