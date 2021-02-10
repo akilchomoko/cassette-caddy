@@ -2,7 +2,7 @@ class TitlesController < ApplicationController
   # Title controller
 
   def index
-    @title = Title.all
+    @title = Title.limit(10)
   end
 
   def show
