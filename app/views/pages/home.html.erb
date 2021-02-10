@@ -1,11 +1,7 @@
-<div class="container position-absolute h-75">
-  <div class="row h-100 min-vw-100 align-items-center">
-    <div class="col text-center align-items-center">
+<div class="min-height d-flex flex-column text-center justify-content-center align-items-center">
       <h1 data-text="Cassette Caddy" class="display-3">Cassette Caddy</h1>
-      <form class="form" action="/titles"> <!-- TODO: needs to be changed to titles_path -->
-        <input type="text" name="q" id="search">
-        <input type="submit" value="Search">
-      </form>
-    </div>
-  </div>
+      <%= simple_form_for :title, url: titles_path, :method => :get do |f| %>
+        <%= f.input :name, as: :string, label: false %>
+        <%= f.submit "Search" %>
+      <% end %>
 </div>
