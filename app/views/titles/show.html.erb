@@ -20,6 +20,11 @@
     </span>
   </a>
   <hr>
-  <button type="button" class="btn btn-dark">Rent Now</button>
+
+  <%= simple_form_for [@title, @rental] do | f | %>
+  <%= f.submit "Rent now"%>
+    <% end %>
+<!--   <button type="button" class="btn btn-dark">Rent Now</button> -->
+<!--   link_to '<button type="button" class="btn btn-dark">Rent Now</button>'.html_safe, @title  -->
 </div>
 
