@@ -1,0 +1,24 @@
+// This CSS is for the app/views/pages/home.html.erb
+
+// TODO  - Finish this neon CSS for the Splash Page: 
+
+.splash_text{
+  font-size: 60px;
+  font-family: 'Futura';
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+  text-align: center;
+}
+
+// TODO  - Finish this centering and width CSS for the Splash Page video backdrop: 
+
+.splash_video{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  object-fit: cover;
+  top: 0;
+  z-index: -2;
+}

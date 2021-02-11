@@ -1,8 +1,12 @@
 class TitlesController < ApplicationController
-  # Title controller
 
+  # Title controller - Limited to 10 searched films: 
   def index
-    @title = Title.all
+    if params[:title][:name].present?
+      @title = Title.splash_search(params[:title][:name])
+    else 
+      @title = Title.limit(10)
+    end
   end
 
   def show
