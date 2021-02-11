@@ -41,7 +41,7 @@ Genre.delete_all
 
 year = "1982"
 recs = 20
-record_limit = 600
+record_limit = 100
 total = 0
 puts "** Calling IMDB for year #{year}, #{recs} at a time **"
 
@@ -50,7 +50,7 @@ page = 1
 loop do
   url = URI("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movies-byyear&page=#{page}&year=#{year}")
   response_hash = get_imdb_data(url)
-  count = response_hash["results"]
+  count = response_hash["results"].to_i || 0
   total_count = response_hash["Total_results"].to_i
   puts " >> #{(recs * (page - 1))+1} .. #{((recs * (page - 1)) + count)} records of #{total_count} from IMDB received"
   for i in 0..(count-1) do
@@ -65,13 +65,14 @@ loop do
     title.description = details_hash["description"]
     title.release_year = details_hash["year"]
     title.imdb_id = imdb_id
-    title.rate_per_day = (details_hash["imdb_rating"].to_f * 10) + 200
+    rating = details_hash["imdb_rating"] || 0
+    title.rate_per_day = (rating.to_f * 10) + 200
     details_hash["genres"].nil? ? genre = "Unknown" : genre = details_hash["genres"][0]
     title.genre = genre_resolve(genre)
 
     title.save
     total += 1
-    puts "#{total}. #{title.title} rated #{details_hash["imdb_rating"]}, to rent for #{title.rate_per_day}p/day"
+    puts "#{total}. #{title.title} rated #{rating}, to rent for #{title.rate_per_day}p/day"
   end
 
   page > total_count/recs ? break : page += 1
