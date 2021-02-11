@@ -5,8 +5,8 @@
 <div class="detail">
   <h4>File Title: <%= @title.title %> </h4>
   <p>Film Description : <%= @title.description %></p>
-  <p>Directors : <%= @title_details["directors"][0..3].join(", ") %></p>
-  <p>Stars : <%= @title_details["stars"][0..3].join(", ") %></p>
+  <p>Directors : <%= @title_details["directors"][0..3].join(", ") unless @title_details["directors"].nil? %></p>
+  <p>Stars : <%= @title_details["stars"][0..3].join(", ") unless @title_details["stars"].nil? %></p>
   <p>Release Year : <%= @title.release_year %></p>
   <p>IMDB Rating : <%= @title_details["imdb_rating"] %></p>
   <p>Language : <%= @title_details["language"][0] %></p>
