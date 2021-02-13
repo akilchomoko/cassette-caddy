@@ -1,7 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  // TODO - Make this a dark background/transparent
-  background: white;
+  background: $foreground;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,4 +9,5 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  color: $neon;
 }
