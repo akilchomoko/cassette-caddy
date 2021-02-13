@@ -11,14 +11,19 @@ class RentalsController < ApplicationController
   def new
     @title = Title.find(params[:title_id])
     @rental = Rental.new
+    redirect_to @title
+    # redirect_to root_url, alert: "Are you sure you want to rent this title?"
   end
 
   def create
-    @rental = Rental.new(rental_params)
+    @rental = Rental.new(start_date: Date.today)
     @title = Title.find(params[:title_id])
-    @rental.title = @rental
+    # @title.update(rent:true)
+    # @title.save
+    @rental.title = @title
+    @rental.user = current_user
     @rental.save
-    redirect_to rental/[:title_id]
+    redirect_to title_path(@title)
   end
 
   def destroy
@@ -27,4 +32,3 @@ class RentalsController < ApplicationController
     redirect_to rental/[:title]
   end
 end
-
