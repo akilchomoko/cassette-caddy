@@ -1,13 +1,13 @@
 <%= render "shared/container" do %>
-<h1>Your Account</h1>
-<h2>Who are you?</h2>
-<div class="card">
-  <h3><%= current_user.firstname %></h3>
-</div>
-<h2>Rentals</h2>
-<ul class="list-group">
-  <% @rentals.each do |rental| %>
-    <li class="list-group-item"><%= rental.title.title %></li>
-  <% end %>
-</ul>
+  <h1>Your Account</h1>
+  <h2>Who are you?</h2>
+  <div class="card bg-dark">
+    <h3><%= current_user.firstname %></h3>
+  </div>
+  <h2>Rentals</h2>
+  <ul class="list-group">
+    <% @rentals.each do |rental| %>
+      <li class="list-group-item bg-dark"><%= rental.title.title %></li>
+    <% end %>
+  </ul>
 <% end %>
