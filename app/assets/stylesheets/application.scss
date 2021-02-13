@@ -12,9 +12,13 @@
 @import "components/index";
 @import "pages/index";
 
-// Application-level CSS 
+// Application-level CSS
 .min-height{
   // The minus 166 represents the combined height of both Navbar(66px) and footer(100px)
   min-height: calc(100vh - 156px); // TODO: there is a tiny bit of 'give' top and bottom on landing page
   background-color: $background;
+}
+
+body {
+  color: white;
 }
