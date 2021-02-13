@@ -16,7 +16,7 @@
             <p>Rated : <%= @title_details["rated"] %></p>
             <p>Format : VHS</p>
             <a href="https://www.imdb.com/title/<%= @title.imdb_id %>/">
-              <span style=" font-size: 32px; color: Dodgerblue;">
+              <span style=" font-size: 32px;">
               <i class="fab fa-imdb"></i>
               </span>
             </a>
@@ -25,7 +25,7 @@
               <p>Rented to you on <%= @rental.start_date %> and due back when you are done!</p>
             <% else %>
               <%= simple_form_for [@title, @rental] do | f | %>
-              <%= f.submit "Rent now"%>
+              <%= f.submit "Rent now", class: "btn btn-primary" %>
                 <% end %>
             <% end %>
           </div>
