@@ -15,3 +15,13 @@
 .fa-home{
   color: $neon;
 }
+
+.dropdown-background {
+  background: $background;
+  .dropdown-item{
+    color: white;
+    &:hover {
+      background: $primary;
+    }
+  }
+}
