@@ -1,5 +1,13 @@
-<div>
-  <h1><%= Rental.title %></h1>
-    <%= link_to "Rent this Cassette", rental/[:title_id], class: 'btn btn-primary' %>
- <% end %>
+<div class="min-height">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 offset-sm-2">
+        <div>
+          <h1><%= Rental.title %></h1>
+            <%= link_to "Rent this Cassette", rental/[:title_id], class: 'btn btn-primary' %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
