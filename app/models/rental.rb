@@ -5,7 +5,8 @@ class Rental < ApplicationRecord
   validates :title_id, presence: true
   validates_uniqueness_of :title_id, scope: [:user_id, :start_date]
 
-  def self.is_rented(title, user)
-    Rental.find_by(user_id: user.id, title_id: title.id, end_date: nil)
+  def self.already_rented(title, user)
+    # Rental.find_by(user_id: user.id, title_id: title.id, end_date: nil)
+    user.rentals.where(title: title, end_date: nil).first
   end
 end
