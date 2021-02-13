@@ -3,8 +3,11 @@
         <h1 class="splash_text">Cassette Caddy</h1>
         <%= simple_form_for :title, url: titles_path, :method => :get do |f| %>
           <%= f.input :name, as: :string, label: false, autofocus: true %>
-          <!-- <%= f.submit "Search" %> -->
+<%#               <form action="" class="search-bar">
+	              <input type="search" name="search" pattern=".*\S.*" required>
+	              <button class="search-btn" type="submit">
+	              </button>
+              </form> %>
         <% end %>
   </div>
 <% end %>
-        
