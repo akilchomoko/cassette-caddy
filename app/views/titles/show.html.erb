@@ -1,8 +1,5 @@
-<div class="min-height">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 offset-sm-2">
-        <div id="titles mt-3">
+
+          <%= render "shared/container" do %>
           <div class="poster">
             <%= image_tag @title_poster["poster"], alt: "Movie Poster To Come!", size: "250x400" %>
           </div>
@@ -32,8 +29,7 @@
                 <% end %>
             <% end %>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+          <% end %>
+
+
+<!-- save -->
