@@ -17,3 +17,8 @@
   // The minus 166 represents the combined height of both Navbar(66px) and footer(100px)
   min-height: calc(100vh - 166px); // TODO: there is a tiny bit of 'give' top and bottom on landing page
 }
+
+.min-height-splash{
+  // The minus 166 represents the combined height of both Navbar(66px) and footer(100px)
+  min-height: calc(100vh - 140px); // TODO: there is a tiny bit of 'give' top and bottom on landing page
+}
