@@ -100,4 +100,5 @@ p "Creating a bunch of rentals for Pat Sharp"
     start_date: start_date
   )
   rental.end_date = start_date + 14 if rand() > 0.5
+  rental.save
 end
