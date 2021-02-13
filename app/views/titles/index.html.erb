@@ -4,28 +4,30 @@
         <div class="col-sm-8 offset-sm-2">
         <div id="titles mt-3">
         <% @title.each do |title| %>
-            <div><%= image_tag title.imdb_poster["poster"], alt: "Movie Poster To Come!", size: "125x200" %></div>
-            <div style="margin: 20px"></div>
-            <h4><%= title.title %></h4>
-            <p>Film Description : <%= title.description %></p>
-            <p>Release Year : <%= title.release_year %></p>
-            <p>Rental Rate : £<%= (title.rate_per_day.to_f / 100) %></p>
-            <a href="https://www.imdb.com/title/<%= title.imdb_id %>/">
-            <span style=" font-size: 24px;">
-            <i class="fab fa-imdb"></i>
-            </span>
-            </a>
-            <span style=" font-size: 24px;">
-            <i class="fas fa-check-circle"></i>
-            </span>
-            <span style=" font-size: 24px;">
-            <i class="far fa-closed-captioning"></i>
-            </span>
-            <span style=" font-size: 24px;" data-toggle="tooltip" data-placement="bottom" title="Available in British Sign Language">
-                <i class="fas fa-sign-language"></i>
-            </span>
-            <a href= <%= title_path(title) %> class="btn btn-primary" role="button" aria-pressed="true">Rent</a>
-            <div style="margin: 40px"></div>
+            <div id="title_row">
+              <div id="poster"><%= image_tag title.imdb_poster["poster"], alt: "Movie Poster To Come!", size: "125x200" %></div>
+              <div id="poster_text">
+                <h4><%= title.title %></h4>
+                <p>Film Description : <%= title.description %></p>
+                <p>Release Year : <%= title.release_year %></p>
+                <p>Rental Rate : £<%= (title.rate_per_day.to_f / 100) %></p>
+                <a href="https://www.imdb.com/title/<%= title.imdb_id %>/">
+                <span style=" font-size: 24px;">
+                <i class="fab fa-imdb"></i>
+                </span>
+                </a>
+                <span style=" font-size: 24px;">
+                <i class="fas fa-check-circle"></i>
+                </span>
+                <span style=" font-size: 24px;">
+                <i class="far fa-closed-captioning"></i>
+                </span>
+                <span style=" font-size: 24px;" data-toggle="tooltip" data-placement="bottom" title="Available in British Sign Language">
+                    <i class="fas fa-sign-language"></i>
+                </span>
+                <a href= <%= title_path(title) %> class="btn btn-primary" role="button" aria-pressed="true">Rent</a>
+              </div>
+            </div>
         <% end %>
         </div>
         </div>
