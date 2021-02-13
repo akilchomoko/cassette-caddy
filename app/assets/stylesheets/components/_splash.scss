@@ -8,7 +8,7 @@
 
 .splash_text_large{
   font-size: 150px;
-  font-family: 'Metronauts';
+  font-family: 'Metronauts' !important; 
   color: #fff;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px $neon, 0 0 30px $neon, 0 0 40px $neon, 0 0 55px $neon, 0 0 75px $neon;
   text-align: center;
@@ -22,7 +22,7 @@
 
 .splash_text_sign{
   font-size: 150px;
-  font-family: 'Retrosign';
+  font-family: 'Retrosign' !important;
   color: #fff;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px $neon, 0 0 30px $neon, 0 0 40px $neon, 0 0 55px $neon, 0 0 75px $neon;
   text-align: center;
