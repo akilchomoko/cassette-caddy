@@ -1,16 +1,18 @@
-
-<div class="min-height">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 offset-sm-2">
-        <h1>Your Account</h1>
-        <h2>Rentals</h2>
-        <ul class="list-group">
-          <% @rentals.each do |rental| %>
-            <li class="list-group-item"><%= rental.title.title %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+<%= render "shared/container" do %>
+  <h1>Your Account</h1>
+  <h2>Who are you?</h2>
+  <div class="contact-info">
+    <p class="name"><%= current_user.firstname %> <%= current_user.lastname %></p>
+    <p class="address"><%= current_user.address1 %></p>
+    <p class="email"><%= current_user.email %></p>
+    <p class="phone"><%= current_user.phonenumber %></p>
+    <%= link_to "Edit details", edit_user_registration_path, class: "btn btn-primary" %>
   </div>
-</div>
+  <hr>
+  <h2>Rentals</h2>
+  <ul class="list-group">
+    <% @rentals.each do |rental| %>
+      <li class="list-group-item bg-dark"><%= rental.title.title %></li>
+    <% end %>
+  </ul>
+<% end %>
