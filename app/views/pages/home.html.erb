@@ -1,20 +1,13 @@
-<div class="min-height">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 offset-sm-2">
-        <div class="min-height d-flex flex-column text-center justify-content-center align-items-center">
-              <h1 class="splash_text">Cassette Caddy</h1>
-              <%= simple_form_for :title, url: titles_path, :method => :get do |f| %>
-                <%= f.input :name, as: :string, label: false, autofocus: true %>
-                
-              <% end %>
+<%= render "shared/container" do %>
+  <div class="min-height d-flex flex-column text-center justify-content-center align-items-center">
+        <h1 class="splash_text">Cassette Caddy</h1>
+        <%= simple_form_for :title, url: titles_path, :method => :get do |f| %>
+          <%= f.input :name, as: :string, label: false, autofocus: true %>
 <%#               <form action="" class="search-bar">
 	              <input type="search" name="search" pattern=".*\S.*" required>
 	              <button class="search-btn" type="submit">
 	              </button>
               </form> %>
-        </div>
-      </div>
-    </div>
+        <% end %>
   </div>
-</div>
+<% end %>

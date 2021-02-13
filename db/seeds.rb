@@ -34,12 +34,10 @@ def get_imdb_data(url)
   JSON.parse(response.body)
 end
 
-
-puts "Deleting all title and genres ..."
-Title.delete_all
-Genre.delete_all
-
-year = "1982"
+if Title.all.length > 0
+  p "Skipping seeding titles as some exist in the db. Run db:drop or manually delete them before repopulating"
+else 
+  year = "1982"
 recs = 20
 record_limit = 100
 total = 0
@@ -74,14 +72,32 @@ loop do
     total += 1
     puts "#{total}. #{title.title} rated #{rating}, to rent for #{title.rate_per_day}p/day"
   end
-
-  page > total_count/recs ? break : page += 1
-  puts "Now page #{page}"
-  break if total > record_limit
-
+end
+  
+p "Killing all users"
+User.all.each do |user|
+  user.rentals.delete_all
+  user.delete
 end
 
-puts "DONE: Year #{year} of IMDB **"
+p "Creating Pat Sharp"
+user = User.new(
+  firstname: "Pat",
+  lastname: "Sharp",
+  email: "patsharp@retro.com",
+  password: "password"
+)
+user.save
 
-
-
+p "Creating a bunch of rentals for Pat Sharp"
+10.times do
+  title = Title.all.sample
+  start_date = Date.new(1982, (1..12).to_a.sample, (1..28).to_a.sample)
+  p "Pat Sharp rents out #{title.title}"
+  rental = Rental.create(
+    title: title,
+    user: user,
+    start_date: start_date
+  )
+  rental.end_date = start_date + 14 if rand() > 0.5
+end

@@ -1,16 +1,13 @@
-
-<div class="min-height">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 offset-sm-2">
-        <h1>Your Account</h1>
-        <h2>Rentals</h2>
-        <ul class="list-group">
-          <% @rentals.each do |rental| %>
-            <li class="list-group-item"><%= rental.title.title %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+<%= render "shared/container" do %>
+  <h1>Your Account</h1>
+  <h2>Who are you?</h2>
+  <div class="card bg-dark">
+    <h3><%= current_user.firstname %></h3>
   </div>
-</div>
+  <h2>Rentals</h2>
+  <ul class="list-group">
+    <% @rentals.each do |rental| %>
+      <li class="list-group-item bg-dark"><%= rental.title.title %></li>
+    <% end %>
+  </ul>
+<% end %>
