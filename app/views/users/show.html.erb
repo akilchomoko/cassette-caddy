@@ -25,7 +25,7 @@
     <tr>
       <td><%= rental.start_date %></td>
       <td><%= rental.end_date %></td>
-      <td><%= rental.title.title %></td>
+      <td><%= link_to rental.title.title, title_path(rental.title) %></td>
       
       <% unless rental.end_date %>
         <td><%= link_to "Return", edit_rental_path(rental), class: "btn btn-sm btn-primary" %></td>
