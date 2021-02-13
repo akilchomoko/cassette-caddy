@@ -80,10 +80,18 @@ else
 end
   
 p "Killing all users"
-User.delete_all
+User.all.each do |user|
+  user.rentals.delete_all
+  user.delete
+end
 
 p "Creating Pat Sharp"
-user = User.new(email: "patsharp@retro.com", password: "password")
+user = User.new(
+  firstname: "Pat",
+  lastname: "Sharp",
+  email: "patsharp@retro.com",
+  password: "password"
+)
 user.save
 
 p "Creating a bunch of rentals for Pat Sharp"
