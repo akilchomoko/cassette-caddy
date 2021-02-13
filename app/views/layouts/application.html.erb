@@ -16,14 +16,7 @@
   <body>
     <!-- this renders the navbar -->
     <%= render "layouts/navbar" %>
-    
-    <% if notice %>
-      <div class="alert alert-primary" role="alert"><%= notice %></div>
-    <% end %>
-
-    <% if alert %>
-      <div class="alert alert-danger" role="alert"><%= alert %></div>
-    <% end %>
+    <%= render 'shared/flashes' %>
 
     <!--  Wrapped the Yield in a div and have set its min height in _home.scss - this should get the footer to drop to the bottom of each page nicely -->
     <%=yield %>
