@@ -31,4 +31,11 @@ class RentalsController < ApplicationController
     @rental.destroy
     redirect_to rental/[:title]
   end
+
+  def edit
+    @rental = Rental.find(params[:id])
+    @rental.end_date = Date.today()
+    @rental.save
+    redirect_to user_path(current_user)
+  end
 end

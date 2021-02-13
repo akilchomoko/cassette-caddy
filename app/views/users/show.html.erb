@@ -16,6 +16,7 @@
       <th scope="col">Start Date</th>
       <th scope="col">Returned On</th>
       <th scope="col">Title</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +26,13 @@
       <td><%= rental.start_date %></td>
       <td><%= rental.end_date %></td>
       <td><%= rental.title.title %></td>
+      
+      <% unless rental.end_date %>
+        <td><%= link_to "Return", edit_rental_path(rental), class: "btn btn-sm btn-primary" %></td>
+      <% else %>
+        <td></td>
+      <% end %>
+      
     </tr>
   <% end %>
   </tbody>
