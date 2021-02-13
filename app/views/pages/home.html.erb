@@ -1,18 +1,15 @@
-<!-- 
-
-FIXME : This is supposed to be a fullscreen background.mp4 720p VHS background fuzz video that I created in Adobe Rush - cannot get it to work FML!! 
-
-<%= video_tag "", autoplay: :autoplay, loop: :loop, muted: :muted, class: "splash_video" %>
-
-Its also set up to work with the splash_video CSS class.
-
--->
-
-
-<div class="min-height d-flex flex-column text-center justify-content-center align-items-center">
-      <h1 class="display-3">Cassette Caddy</h1>
-      <%= simple_form_for :title, url: titles_path, :method => :get do |f| %>
-        <%= f.input :name, as: :string, label: false, autofocus: true %>
-        <%= f.submit "Search" %>
-      <% end %>
+<div class="min-height">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 offset-sm-2">
+        <div class="min-height d-flex flex-column text-center justify-content-center align-items-center">
+              <h1 class="splash_text">Cassette Caddy</h1>
+              <%= simple_form_for :title, url: titles_path, :method => :get do |f| %>
+                <%= f.input :name, as: :string, label: false, autofocus: true %>
+                <!-- <%= f.submit "Search" %> -->
+              <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
