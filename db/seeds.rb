@@ -38,7 +38,7 @@ if Title.all.length > 0
   p "Skipping seeding titles as some exist in the db. Run db:drop or manually delete them before repopulating"
 else 
   year = "1982"
-recs = 20
+  recs = 20
 record_limit = 100
 total = 0
 puts "** Calling IMDB for year #{year}, #{recs} at a time **"
@@ -73,6 +73,7 @@ loop do
     puts "#{total}. #{title.title} rated #{rating}, to rent for #{title.rate_per_day}p/day"
   end
 end
+end
   
 p "Killing all users"
 User.all.each do |user|
@@ -94,10 +95,11 @@ p "Creating a bunch of rentals for Pat Sharp"
   title = Title.all.sample
   start_date = Date.new(1982, (1..12).to_a.sample, (1..28).to_a.sample)
   p "Pat Sharp rents out #{title.title}"
-  rental = Rental.create(
+  rental = Rental.new(
     title: title,
     user: user,
     start_date: start_date
   )
   rental.end_date = start_date + 14 if rand() > 0.5
+  rental.save
 end

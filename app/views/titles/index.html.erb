@@ -9,17 +9,17 @@
             <p>Release Year : <%= title.release_year %></p>
             <p>Rental Rate : <%= title.rate_per_day %></p>
             <a href="https://www.imdb.com/title/<%= title.imdb_id %>/">
-            <span style=" font-size: 24px; color: Gold;">
+            <span style=" font-size: 24px;">
             <i class="fab fa-imdb"></i>
             </span>
             </a>
-            <span style=" font-size: 24px; color: Green;">
+            <span style=" font-size: 24px;">
             <i class="fas fa-check-circle"></i>
             </span>
-            <span style=" font-size: 24px; color: Black;">
+            <span style=" font-size: 24px;">
             <i class="far fa-closed-captioning"></i>
             </span>
-            <span style=" font-size: 24px; color: Black;" data-toggle="tooltip" data-placement="bottom" title="Available in British Sign Language">
+            <span style=" font-size: 24px;" data-toggle="tooltip" data-placement="bottom" title="Available in British Sign Language">
                 <i class="fas fa-sign-language"></i>
             </span>
             <a href= <%= title_path(title) %> class="btn btn-primary" role="button" aria-pressed="true">Rent</a>
