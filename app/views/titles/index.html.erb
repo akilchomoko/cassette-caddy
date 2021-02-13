@@ -9,7 +9,7 @@
             <h4><%= title.title %></h4>
             <p>Film Description : <%= title.description %></p>
             <p>Release Year : <%= title.release_year %></p>
-            <p>Rental Rate : <%= title.rate_per_day %></p>
+            <p>Rental Rate : £<%= (title.rate_per_day.to_f / 100) %></p>
             <a href="https://www.imdb.com/title/<%= title.imdb_id %>/">
             <span style=" font-size: 24px;">
             <i class="fab fa-imdb"></i>
