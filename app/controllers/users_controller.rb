@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @rentals = current_user.rentals
+    @rentals = current_user.rentals.order(start_date: :desc)
   end
 
   def edit

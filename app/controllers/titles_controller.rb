@@ -14,7 +14,6 @@ class TitlesController < ApplicationController
     @title = Title.find(params[:id])
     @title_details = @title.imdb_details
     @title_poster = @title.imdb_poster
-    @rental = Rental.is_rented(@title, current_user)
-    @rental = Rental.new unless @rental
+    @rental = Rental.already_rented(@title, current_user) || Rental.new
   end
 end

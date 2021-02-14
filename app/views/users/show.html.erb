@@ -10,9 +10,31 @@
   </div>
   <hr>
   <h2>Rentals</h2>
-  <ul class="list-group">
-    <% @rentals.each do |rental| %>
-      <li class="list-group-item bg-dark"><%= rental.title.title %></li>
-    <% end %>
-  </ul>
+  <table class="rental-table table table-transparent text-white table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Start Date</th>
+      <th scope="col">Returned On</th>
+      <th scope="col">Title</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <% @rentals.each do |rental| %>
+    <tr>
+      <td><%= rental.start_date %></td>
+      <td><%= rental.end_date %></td>
+      <td><%= link_to rental.title.title, title_path(rental.title) %></td>
+      
+      <% unless rental.end_date %>
+        <td><%= link_to "Return", edit_rental_path(rental), class: "btn btn-sm btn-primary" %></td>
+      <% else %>
+        <td></td>
+      <% end %>
+      
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 <% end %>
