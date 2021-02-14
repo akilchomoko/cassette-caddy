@@ -1,0 +1,18 @@
+// Import page-specific CSS files here.
+@import "home";
+
+// Includes images & all text
+#title_details {
+  margin: 40px;
+}
+
+// Image, description and rent CTA
+#about {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+// Desciption & cta
+#description {
+  margin: 40px;
+}
