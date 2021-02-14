@@ -1,11 +1,32 @@
 
-          <%= render "shared/container" do %>
-          <div class="poster" style="margin: 40px 0px">
-            <%= image_tag @title_poster["poster"], alt: "Movie Poster To Come!", size: "250x400" %>
+<%= render "shared/container" do %>
+  <div id="title_details">
+    <div id="about">
+      <div class="poster" style="margin: 40px 0px">
+          <%= image_tag @title_poster["poster"], alt: "Movie Poster To Come!", size: "250x400"%>
+      </div>
+      <div id="description">
+        <div class="detail">
+              <h4><a href="https://www.imdb.com/title/<%= @title.imdb_id %>/">
+              <span style=" font-size: 32px;">
+              <i class="fab fa-imdb"></i>
+              </span>
+            </a><%= @title.title %></h4>
+              <p><%= @title.description %></p>
           </div>
-          <div class="detail">
-            <h4>File Title: <%= @title.title %> </h4>
-            <p>Film Description : <%= @title.description %></p>
+              <div id="rent_button">
+              <hr>
+            <% if @rental.start_date %>
+                <p>Rented to you on <%= @rental.start_date %> and due back when you are done!</p>
+              <% else %>
+                <%= simple_form_for [@title, @rental] do | f | %>
+                <%= f.submit "Rent now", class: "btn btn-primary" %>
+                <% end %>
+                <% end %>
+             </div>
+      </div>
+    </div>
+            <div id="content">
             <p>Directors : <%= @title_details["directors"][0..3].join(", ") unless @title_details["directors"].nil? %></p>
             <p>Stars : <%= @title_details["stars"][0..3].join(", ") unless @title_details["stars"].nil? %></p>
             <p>Release Year : <%= @title.release_year %></p>
@@ -15,21 +36,6 @@
             <p>Rental Rate : £<%= @title.rate_per_day.to_f / 100 %> per day</p>
             <p>Rated : <%= @title_details["rated"] %></p>
             <p>Format : VHS</p>
-            <a href="https://www.imdb.com/title/<%= @title.imdb_id %>/">
-              <span style=" font-size: 32px;">
-              <i class="fab fa-imdb"></i>
-              </span>
-            </a>
-            <hr>
-          <% if @rental.start_date %>
-              <p>Rented to you on <%= @rental.start_date %> and due back when you are done!</p>
-            <% else %>
-              <%= simple_form_for [@title, @rental] do | f | %>
-              <%= f.submit "Rent now", class: "btn btn-primary" %>
-                <% end %>
-            <% end %>
-          </div>
-          <% end %>
-
-
-<!-- save -->
+        </div>
+  </div>
+<% end %>
