@@ -1,8 +1,10 @@
-<%= render "shared/container" do %>
-  <h2>Connecting you to VHS fans, near you ..</h2>
+<!-- <%= render "shared/container" do %> -->
 
+<div class="min-height">
+  <h2 style="text-align: center">Your VHS friends, near you ..</h2>
   <div id="map"
        style="width: 100%; height: 600px;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-<% end %>
+</div>
+    <!-- <% end %> -->
