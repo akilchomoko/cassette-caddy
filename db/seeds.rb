@@ -100,9 +100,9 @@ p "Creating a bunch of rentals for Pat Sharp"
   rental = Rental.new(
     title: title,
     user: user,
-    start_date: start_date
+    start_date: start_date.to_datetime
   )
-  rental.end_date = start_date + 14 if rand() > 0.5
+  rental.end_date = (start_date + 14).to_datetime if rand() > 0.5
   rental.save
 end
 end
