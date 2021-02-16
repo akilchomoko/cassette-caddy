@@ -9,10 +9,22 @@
 // Image, description and rent CTA
 #about {
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
 }
 
 // Desciption & cta
 #description {
   margin: 40px;
+}
+
+@media (max-width: map-get($grid-breakpoints, lg)) {
+  #about {
+    flex-direction: column;
+  }
+
+  #description {
+    margin: 0;
+    margin-bottom: 20px;
+  }
 }
