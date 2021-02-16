@@ -24,8 +24,8 @@
 
   <% @rentals.each do |rental| %>
     <tr>
-      <td><%= rental.start_date %></td>
-      <td><%= rental.end_date %></td>
+      <td><%= rental.start_date.strftime("%d %b %Y") if rental.start_date %></td>
+      <td><%= rental.end_date.strftime("%d %b %Y") if rental.end_date %></td>
       <td><%= link_to rental.title.title, title_path(rental.title) %></td>
 
       <% unless rental.end_date %>
