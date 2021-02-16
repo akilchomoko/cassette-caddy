@@ -14,11 +14,20 @@ class UsersController < ApplicationController
 
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = @users.geocoded.map do |user|
+      poster = latest_rental_poster(user)
       {
         lat: user.latitude,
         lng: user.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { user: user })
+        infoWindow: render_to_string(partial: "info_window", locals: { user: user, poster: poster }),
+        image_url: helpers.asset_url('https://media.giphy.com/media/3o6gE8BpHT8gVtb7Y4/giphy.gif')
       }
     end
+  end
+
+  private
+
+  def latest_rental_poster(user)
+    rental = user.rentals.last || Rental.all.last
+    rental.title.imdb_poster["poster"]
   end
 end
