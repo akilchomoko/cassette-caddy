@@ -1,10 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
 
 require 'uri'
 require 'net/http'
@@ -72,7 +68,10 @@ loop do
     total += 1
     puts "#{total}. #{title.title} rated #{rating}, to rent for #{title.rate_per_day}p/day"
   end
-end
+  page += 1
+  if total > record_limit 
+    break
+  end
 end
   
 p "Killing all users"
@@ -86,7 +85,10 @@ user = User.new(
   firstname: "Pat",
   lastname: "Sharp",
   email: "patsharp@retro.com",
-  password: "password"
+  password: "password",
+  address1: "89 High Street",
+  address2: "Teddington",
+  postcode: "TW11 8HG"
 )
 user.save
 
@@ -102,4 +104,5 @@ p "Creating a bunch of rentals for Pat Sharp"
   )
   rental.end_date = start_date + 14 if rand() > 0.5
   rental.save
+end
 end
