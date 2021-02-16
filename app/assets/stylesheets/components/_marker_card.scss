@@ -5,10 +5,37 @@
 
 .mapboxgl-popup-content {
   padding: 0px !important;
-  height: 100px !important;
-  width: 65px !important;
+  height: 300px !important;
+  width: 200px !important;
 }
 
 .marker_card {
   background-size: cover;
+  height: 300px;
+  width: 200px;
+  position: relative;
+}
+
+.marker_card_text {
+  background-color: rgba(28, 30, 48, 0.9);
+  color: $neon;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+
+  p {
+    margin: 0px;
+  }
+
+  h4 {
+    margin: 0px;
+  }
+}
+
+.avatar_container {
+  position: absolute;
+  bottom: 15px;
+  right: 15px
 }
