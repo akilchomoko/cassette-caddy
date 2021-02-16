@@ -1,5 +1,5 @@
 class TitlesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :random]
   # Title controller - Limited to 10 searched films:
   def index
     if params[:title][:name].present?
