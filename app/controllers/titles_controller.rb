@@ -16,4 +16,9 @@ class TitlesController < ApplicationController
     @title_poster = @title.imdb_poster
     @rental = Rental.already_rented(@title, current_user) || Rental.new
   end
-end
+
+  def random
+    @title = Title.order('RANDOM()').first
+    redirect_to title_path(@title)
+    end
+  end
