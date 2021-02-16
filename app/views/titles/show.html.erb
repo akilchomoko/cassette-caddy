@@ -35,7 +35,7 @@
             <p>Popularity : <%= @title_details["popularity"][0] %></p>
             <p>Rental Rate : £<%= @title.rate_per_day.to_f / 100 %> per day</p>
             <p>Rated : <%= @title_details["rated"] %></p>
-            <p>Format : VHS</p>
+            <p>Format : <%= image_tag image_path("vhs.svg"), style: "height: 16px;" %></p>
         </div>
   </div>
 <% end %>
