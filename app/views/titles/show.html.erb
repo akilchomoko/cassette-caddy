@@ -31,8 +31,8 @@
             <p>Stars : <%= @title_details["stars"][0..3].join(", ") unless @title_details["stars"].nil? %></p>
             <p>Release Year : <%= @title.release_year %></p>
             <p>IMDB Rating : <%= @title_details["imdb_rating"] %></p>
-            <p>Language : <%= @title_details["language"][0] %></p>
-            <p>Popularity : <%= @title_details["popularity"][0] %></p>
+            <p>Language : <%= @title_details["language"].first if @title_details["language"] %></p>
+            <p>Popularity : <%= @title_details["popularity"].first if @title_details["popularity"] %></p>
             <p>Rental Rate : £<%= sprintf("%.2f", @title.rate_per_day.to_f / 100) %> per day</p>
             <p>Rated : <%= @title_details["rated"] %></p>
             <p>Format : <%= image_tag image_path("vhs.svg"), style: "height: 16px;" %></p>
