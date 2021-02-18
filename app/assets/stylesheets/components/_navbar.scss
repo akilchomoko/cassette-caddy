@@ -14,6 +14,11 @@
 
 .fa-home{
   color: $neon;
+  opacity: 0.5;
+}
+
+.fa-home:hover {
+  opacity: 1;
 }
 
 .dropdown-background {
@@ -24,4 +29,21 @@
       background: $primary;
     }
   }
+}
+
+#navbar-search {
+  width: 100px;
+  padding-left: 30px;
+  padding-right: 5px;
+  transition: width 500ms;
+
+  &:focus {
+    width: 250px;
+  }
+}
+
+.navbar-search-icon {
+  position: relative;
+  left: 25px;
+  color: $neon;
 }

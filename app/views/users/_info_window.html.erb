@@ -1,3 +1,13 @@
-<h1><%= user.firstname %></h1>
-<p><%= user.lastname %></p>
-<p><%= user.postcode %></p>
+<div class="marker_card" style="background-image: url('<%= image_path poster %>')">
+  <div class="marker_card_text">
+    <h4><%= user.firstname %> <%= user.lastname %></h4>
+    <p>Email: <%= user.email %></p>
+    <p>VHS Mania: <%= rand(50) %>/50</p>
+  </div>
+  <div class="avatar_container">
+    <%= image_tag image_path("mullet.jpg"), class: "avatar-bordered" %>
+  </div>
+  <div class="rental_text">Watching ...</div>
+</div>
+
+
