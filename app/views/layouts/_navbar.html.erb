@@ -1,12 +1,16 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
 <div class="navbar">
   <%= link_to icon("fas", "home"), root_path, class: "navbar-brand" %>
-  <%= icon("fas", "search", class: "navbar-search-icon") %>
-  <%= form_tag titles_path, method: :get do %>
-    <%= text_field_tag "title[name]",
-      "",
-      class: "form-control navbar-search"
-    %>
+  
+  <% unless current_page?(root_path) %> <!-- add search if not on landing page -->
+    <%= icon("fas", "search", class: "navbar-search-icon") %>
+    <%= form_tag titles_path, method: :get do %>
+      <%= text_field_tag "title[name]",
+        "",
+        class: "form-control",
+        id: "navbar-search"
+      %>
+    <% end %>
   <% end %>
 </div>
 
