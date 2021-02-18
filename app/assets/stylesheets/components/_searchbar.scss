@@ -6,10 +6,21 @@
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
-    background-color: #222337;
+    color: $neon;
+    background: #222337;
     background-clip: padding-box;
     border: .5px solid #8A7CBB;
     border-radius: 20px;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    &:focus {
+        background: repeating-linear-gradient(
+            0deg,
+            rgba($neon, 0.1),
+            rgba($neon, 0.1) 2px,
+            transparent 2px,
+            transparent 4px
+            );
+        color: $neon;
+    }
 }
