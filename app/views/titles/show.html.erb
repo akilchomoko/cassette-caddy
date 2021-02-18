@@ -17,7 +17,7 @@
               <div id="rent_button">
               <hr>
             <% if @rental.start_date %>
-                <p>Rented to you on <%= @rental.start_date %> and due back when you are done!</p>
+                <p>Rented to you on <%= @rental.start_date.strftime("%d %B %Y") %> and due back when you are done!</p>
               <% else %>
                 <%= simple_form_for [@title, @rental] do | f | %>
                 <%= f.submit "Rent now", class: "btn btn-primary" %>
@@ -33,7 +33,7 @@
             <p>IMDB Rating : <%= @title_details["imdb_rating"] %></p>
             <p>Language : <%= @title_details["language"][0] %></p>
             <p>Popularity : <%= @title_details["popularity"][0] %></p>
-            <p>Rental Rate : £<%= @title.rate_per_day.to_f / 100 %> per day</p>
+            <p>Rental Rate : £<%= sprintf("%.2f", @title.rate_per_day.to_f / 100) %> per day</p>
             <p>Rated : <%= @title_details["rated"] %></p>
             <p>Format : <%= image_tag image_path("vhs.svg"), style: "height: 16px;" %></p>
         </div>

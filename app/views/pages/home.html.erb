@@ -5,6 +5,7 @@
               <h1 class="splash_text_sign" id="splash_text_sign">Caddy</h1>
               <%= simple_form_for :title, url: titles_path, :method => :get do |f| %>
                 <%= f.input :name, as: :string, label: false, autofocus: true, class: "form-control"%>
+                <%= link_to icon("fas", "dice"), title_random_path, title: "Get a random VHS" %>
               <% end %>
      </div>
   </div>
