@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         lat: user.latitude,
         lng: user.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { user: user, poster: poster }),
-        image_url: helpers.asset_url('https://media.giphy.com/media/3o6gE8BpHT8gVtb7Y4/giphy.gif')
+        image_url: helpers.asset_url('https://media.giphy.com/media/l44QvKoQuUD3xPZKg/giphy.gif')
       }
     end
   end
