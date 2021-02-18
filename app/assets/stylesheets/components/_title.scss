@@ -20,6 +20,8 @@ body{
 }
 
 .index-title {
+    height: 370px;
+    background-size: cover;
     max-width: 236px;
     max-height: 372px;
     object-fit: contain;
@@ -56,7 +58,7 @@ body{
 }
 
 
-.index-title:hover img {
+.index-title:hover {
     filter: grayscale(100%);
 }
 

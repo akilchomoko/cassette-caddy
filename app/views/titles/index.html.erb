@@ -3,14 +3,13 @@
       <div class="row">
         <% @title.each do |title| %>
           <div class="col-md-3">
-            <div class="index-title"><%= image_tag title.imdb_poster["poster"]%> 
-              <a> href= <%= title_path(title) %> </a>
+            <%= link_to title_path(title) do %> 
+              <div class="index-title" style="background-image: url(<%= image_path title.imdb_poster["poster"]%>)"> 
                 <div class="title-icons">
-                  <a>
                     <i class="fas fa-check-circle circle-icon"></i>
-                  </a>
                 </div>
-            </div>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>

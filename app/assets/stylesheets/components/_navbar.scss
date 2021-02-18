@@ -14,6 +14,11 @@
 
 .fa-home{
   color: $neon;
+  opacity: 0.5;
+}
+
+.fa-home:hover {
+  opacity: 1;
 }
 
 .dropdown-background {
