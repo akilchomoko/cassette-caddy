@@ -80,7 +80,7 @@ if Title.all.length > 0 then
 else
   year = "1982"
   recs = 20
-  record_limit = 100
+  record_limit = 450
   total = 0
   puts "** Calling IMDB for year #{year}, #{recs} at a time **"
 
