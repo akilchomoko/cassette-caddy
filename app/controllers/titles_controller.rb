@@ -15,5 +15,15 @@ class TitlesController < ApplicationController
     @title_details = @title.imdb_details
     @title_poster = @title.imdb_poster
     @rental = Rental.already_rented(@title, current_user) || Rental.new
+    @random_titles = []
+    random_array = []
+    until @random_titles.length == 8 do
+     random = rand(1...Title.all.length)
+      unless random == params[:id] || random_array.include?(random)
+        @random_titles << Title.find(random)
+      end
+      random_array << random
+    end
   end
 end
+
