@@ -23,8 +23,7 @@ const placeMarkers = (map, markers) => {
     element.style.borderColor = '#ff0080';
     element.style.borderStyle = 'solid';
     element.style.borderRadius = '35px';
-    element.style.border-style: solid;
-    element.style.border-width: "2px";
+    element.style.borderWidth = "2px";
 
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
