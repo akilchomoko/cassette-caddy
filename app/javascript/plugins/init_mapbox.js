@@ -18,11 +18,13 @@ const placeMarkers = (map, markers) => {
     element.className = 'marker';
     element.style.backgroundImage = `url('${marker.image_url}')`;
     element.style.backgroundSize = 'cover';
-    element.style.width = '62px';
+    element.style.width = '70px';
     element.style.height = '70px';
     element.style.borderColor = '#ff0080';
     element.style.borderStyle = 'solid';
-    element.style.borderRadius = '10px';
+    element.style.borderRadius = '35px';
+    element.style.border-style: solid;
+    element.style.border-width: "2px";
 
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
