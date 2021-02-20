@@ -61,6 +61,13 @@ def create_users
   end
 end
 
+def empty_poster(imdb_id)
+  url = URI("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movies-images-by-imdb&imdb=#{imdb_id}")
+  details = get_imdb_data(url)
+  puts "Empty poster found .. skipping #{imdb_id}" if details["poster"].empty?
+  details["poster"].empty?
+end
+
 def get_imdb_data(url)
   http = Net::HTTP.new(url.host, url.port)
   http.use_ssl = true
@@ -75,7 +82,7 @@ def get_imdb_data(url)
 end
 
 
-if Title.all.length > 0 then
+if Title.all.length > 300 then
   p "Skipping seeding titles as some exist in the db. Run db:drop or manually delete them before repopulating"
 else
   year = "1982"
@@ -98,6 +105,8 @@ else
       title.title = response_hash["movie_results"][i]["title"]
       imdb_id = response_hash["movie_results"][i]["imdb_id"]
 
+      next if empty_poster(imdb_id);
+
       url_by_imdb_id = URI("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movie-details&imdb=#{imdb_id}")
       details_hash = get_imdb_data(url_by_imdb_id)
 
@@ -108,6 +117,7 @@ else
       title.rate_per_day = (rating.to_f * 10) + 200
       details_hash["genres"].nil? ? genre = "Unknown" : genre = details_hash["genres"][0]
       title.genre = genre_resolve(genre)
+
 
       title.save
       total += 1
