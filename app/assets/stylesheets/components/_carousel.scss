@@ -68,4 +68,12 @@ Attribution required
         visibility: visible;
     }
 
+    .carousel-control-prev, .carousel-control-next {
+      width: auto;
+    }
+
+    .carousel-inner {
+      padding: 0 30px;
+      margin: 0px;
+    }
 }
