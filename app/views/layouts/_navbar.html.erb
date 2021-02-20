@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
 <div class="navbar">
   <%= link_to icon("fas", "home"), root_path, class: "navbar-brand" %>
-  
+
   <% unless current_page?(root_path) %> <!-- add search if not on landing page -->
     <%= icon("fas", "search", class: "navbar-search-icon") %>
     <%= form_tag titles_path, method: :get do %>
@@ -17,11 +17,11 @@
   <div class="navbar" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <li class="mr-3 nav-item">
-          
+
       </li>
       <% if user_signed_in? %>
 
-        <li class="nav-time bg-background" style="margin-right: 20px"><%= link_to "Fan finder", users_path,:class => "btn btn-primary" %></li>
+        <li class="nav-time bg-background" style="margin-right: 20px"><%= link_to "Fan finder", users_path,:class => "nav-link btn btn-primary text-white rounded-pill" %></li>
         <li class="nav-item dropdown bg-background">
           <%= image_tag image_path("mullet.jpg"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-background dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
