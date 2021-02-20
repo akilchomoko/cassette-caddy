@@ -101,7 +101,7 @@ else
     puts " >> #{(recs * (page - 1))+1} .. #{((recs * (page - 1)) + count)} records of #{total_count} from IMDB received"
     for i in 0..(count-1) do
       title = Title.new
-
+      sleep 1
       title.title = response_hash["movie_results"][i]["title"]
       imdb_id = response_hash["movie_results"][i]["imdb_id"]
 
