@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get 'title/random', to: 'titles#random'
+  get '/rick', to: 'pages#rick'
 
 
   resources :titles, only: [:index, :show] do
