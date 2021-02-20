@@ -7,6 +7,7 @@
   padding: 0px !important;
   height: 300px !important;
   width: 200px !important;
+  background: none !important;
 }
 
 .marker_card {
@@ -41,29 +42,44 @@
   right: 15px
 }
 
+.rental_typewriter {
+  background-color: transparent;
+  text-align: left;
+  margin-left: 10px;
+}
+
 .rental_text {
-  position: absolute;
-  left: 10px;
-  top: -55px;
+  // position: absolute;
+  // left: 10px;
+  // top: -55px;
   color: white;
   font-size: 1em;
 }
 
 .typewriter {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid orange; /* The typwriter cursor */
+  border-right: .15em solid $neon; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  // margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: 0em; /* Adjust as needed */
-  position: absolute;
+  text-align: left;
+  display: inline-block;
   font-size: 1.5em;
-  left: 10px;
-  top: -35px;
+  width: auto;
+
+  // left: 10px;
+  // top: -35px;
   color: white;
   animation:
     typing 1.5s steps(40, end),
     blink-caret .75s step-end infinite;
 }
+
+.drop-tip .mapboxgl-popup-tip {
+  display: none;
+}
+
+
 
 .marker_card_rent {
   position: absolute;
@@ -74,7 +90,7 @@
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
-  to { width: 100% }
+  to { width: 50% }
 }
 
 /* The typewriter cursor effect */

@@ -6,13 +6,14 @@ const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/akilchomoko/ckl7rut2j0v2017jv29invsqr'
+    style: 'mapbox://styles/akilchomoko/ckl7rut2j0v2017jv29invsqr',
+    center: [-0.307207, 51.4313539]
   });
 };
 
 const placeMarkers = (map, markers) => {
   markers.forEach((marker) => {
-    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+    const popup = new mapboxgl.Popup({className: "drop-tip" }).setHTML(marker.infoWindow);
 
     const element = document.createElement('div');
     element.className = 'marker';
@@ -44,9 +45,12 @@ const initMapbox = () => {
     const map =buildMap(mapElement);
     const markers = JSON.parse(mapElement.dataset.markers);
     placeMarkers(map, markers);
-    fitMapToMarkers(map, markers);
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
                                       mapboxgl: mapboxgl }));
+  // setTimeout(() => {
+  //   console.log("Called")
+    fitMapToMarkers(map, markers);
+  //   }, 3000)
   }
 };
 

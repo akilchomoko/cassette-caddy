@@ -1,17 +1,20 @@
-<div class="marker_card" style="background-image: url('<%= image_path poster %>')">
-  <div class="marker_card_text">
-    <h5><a href="mailto:<%= user.email %>"><i class="far fa-envelope"></i></a> <%= user.firstname %> <%= user.lastname %></h5>
-    <h5>VHS Mania: <%= rand(50) %>/50</h5>
+<div>
+  <div class="rental_typewriter">
+    <div class="rental_text">Is Watching ...</div>
+    <div class="typewriter"><%= title.title %></div>
   </div>
-  <div class="avatar_container">
-    <%= image_tag image_path("mullet.jpg"), class: "avatar-bordered" %>
-  </div>
-  <div class="rental_text">Is Watching ...</div>
-  <div class="typewriter"><%= title.title %></div>
-
-  <div class="rent"></div>
-  <div class="marker_card_rent">
-    <%= link_to "Rent", title_path(title), class: "btn btn-primary" %>
+  <div class="marker_card" style="background-image: url('<%= image_path poster %>')">
+    <div class="marker_card_text">
+      <h5><a href="mailto:<%= user.email %>"><i class="far fa-envelope"></i></a> <%= user.firstname %> <%= user.lastname %></h5>
+      <h5>VHS Mania: <%= rand(50) %>/50</h5>
+    </div>
+    <div class="avatar_container">
+      <%= image_tag image_path("mullet.jpg"), class: "avatar-bordered" %>
+    </div>
+    <div class="rent"></div>
+    <div class="marker_card_rent">
+      <%= link_to "Rent", title_path(title), class: "btn btn-primary" %>
+    </div>
   </div>
 </div>
 
